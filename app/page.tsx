@@ -5,7 +5,7 @@ export default function Home() {
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50">
             <div className="flex flex-col">
-                <div className="w-full justify-start items-center flex gap-2">
+                <div className="w-full justify-start items-center flex gap-2 pb-4">
                     <Image
                         src="/logo.svg"
                         alt="Sluggers Logo"
