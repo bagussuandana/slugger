@@ -29,6 +29,7 @@ const SluggerForm = () => {
         const result = slugify(processedText, {
             lower: true,
             replacement: separator,
+            strict: true,
         });
 
         setSlug(result);
