@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import toast from "react-hot-toast";
 import slugify from "slugify";
 
 const SluggerForm = () => {
@@ -45,10 +46,13 @@ const SluggerForm = () => {
         setRemoveStopWords(false);
         setRemoveNumbers(false);
     };
-
-    const copyToClipboard = () => {
+    const textCopyToClipboard = () => {
+        navigator.clipboard.writeText(text);
+        toast.success("Text copied to clipboard!");
+    };
+    const slugCopyToClipboard = () => {
         navigator.clipboard.writeText(slug);
-        alert("Slug copied to clipboard!");
+        toast.success("Slug copied to clipboard!");
     };
 
     return (
@@ -58,12 +62,20 @@ const SluggerForm = () => {
                     INPUT STRING: (Article title, tutorial title or any web page
                     title)
                 </label>
-                <input
-                    type="text"
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
-                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                />
+                <div className="flex mt-1">
+                    <input
+                        type="text"
+                        value={text}
+                        onChange={(e) => setText(e.target.value)}
+                        className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    />
+                    <button
+                        onClick={textCopyToClipboard}
+                        className="ml-2 px-4 py-2 bg-gray-700 text-white rounded-md"
+                    >
+                        COPY
+                    </button>
+                </div>
             </div>
 
             <div className="mb-4 flex space-x-4">
@@ -143,7 +155,7 @@ const SluggerForm = () => {
                             className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                         />
                         <button
-                            onClick={copyToClipboard}
+                            onClick={slugCopyToClipboard}
                             className="ml-2 px-4 py-2 bg-gray-700 text-white rounded-md"
                         >
                             COPY
