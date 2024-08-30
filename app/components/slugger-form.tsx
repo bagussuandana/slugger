@@ -11,7 +11,7 @@ const SluggerForm = () => {
     const [removeStopWords, setRemoveStopWords] = useState(false);
     const [removeNumbers, setRemoveNumbers] = useState(false);
 
-    const handleSlugify = () => {
+    const handleSluggers = () => {
         let processedText = text;
 
         if (removeStopWords) {
@@ -123,10 +123,10 @@ const SluggerForm = () => {
 
             <div className="mb-4 flex space-x-4">
                 <button
-                    onClick={handleSlugify}
+                    onClick={handleSluggers}
                     className="px-4 py-2 bg-gray-700 text-white rounded-md"
                 >
-                    SLUGIFY (GENERATE SLUG)
+                    GENERATE SLUG
                 </button>
                 <button
                     onClick={handleClear}
