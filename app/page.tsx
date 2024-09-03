@@ -13,7 +13,7 @@ export default function Home() {
                         height={30}
                         priority
                     />
-                    <h1>Sluggers</h1>
+                    <h1 className="text-black text-xl">Sluggers</h1>
                 </div>
                 <SluggerForm />
             </div>
